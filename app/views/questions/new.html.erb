@@ -1,1 +1,17 @@
-<h1>やぁ</h1>
+<h1>New Question</h1>
+<%= form_with model: @question do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  <div>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

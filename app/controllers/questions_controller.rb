@@ -5,7 +5,8 @@ class QuestionsController < ApplicationController
   def show
   end
 
-  def create
+  def new
+    @question = Question.new
   end
 
   def edit
