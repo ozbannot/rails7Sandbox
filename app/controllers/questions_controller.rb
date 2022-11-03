@@ -13,8 +13,11 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(questions_params)
-    @question.save
-    redirect_to @question
+    if @question.save
+      redirect_to @question
+    else 
+      render 'new', status: :unprocessable_entity
+    end
   end
 
   def edit
