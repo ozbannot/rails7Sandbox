@@ -12,4 +12,31 @@
   <%= @question.content %>
 </p>
 
+<h2>Answers</h2>
+<% @question.answers.each do |answer| %>
+  <p>
+    Name:<br>
+    <%= answer.name %>
+  </p>
+  <p>
+    Content:<br>
+    <%= answer.content %>
+  </p>
+<% end %>
+
+<h2>Add a answer</h2>
+<%= form_with model: [@question, @question.answers.build] do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'top', questions_path %>
