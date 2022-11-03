@@ -21,9 +21,16 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:id])
   end
 
   def update
+    @question = Question.find(params[:id])
+    if @question.update(questions_params)
+      redirect_to @question
+    else
+      render 'edit', status: :unprocessable_entity
+    end
   end
 
   def destroy
