@@ -22,6 +22,10 @@
     Content:<br>
     <%= answer.content %>
   </p>
+  <p>
+    <%= link_to 'Destory Answer', [answer.question, answer],
+      data: {turbo_method: 'delete', turbo_confirm: 'Are you Sure?'} %>
+  </p>
 <% end %>
 
 <h2>Add a answer</h2>
